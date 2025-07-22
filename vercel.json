@@ -2,5 +2,11 @@
   "buildCommand": "pnpm run build",
   "installCommand": "pnpm install",
   "framework": "nextjs",
-  "outputDirectory": ""
+  "outputDirectory": "",
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/api/page"
+    }
+  ]
 }
