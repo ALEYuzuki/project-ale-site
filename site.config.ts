@@ -2,64 +2,52 @@ import { siteConfig } from './lib/site-config'
 
 export default siteConfig({
   // the site's root Notion page (required)
-  rootNotionPageId: '7875426197cf461698809def95960ebf',
+  rootNotionPageId: '2386949e86ee8055888de14786df5581',
 
   // if you want to restrict pages to a single notion workspace (optional)
-  // (this should be a Notion ID; see the docs for how to extract this)
   rootNotionSpaceId: null,
 
   // basic site info (required)
-  name: 'Next.js Notion Starter Kit',
-  domain: 'nextjs-notion-starter-kit.transitivebullsh.it',
-  author: 'Travis Fischer',
+  name: 'ProjectAEL',
+  domain: 'project-ale-site.vercel.app',
+  author: 'ALE',
 
   // open graph metadata (optional)
-  description: 'Example Next.js Notion Starter Kit Site',
+  description: 'アークナイツ：エンドフィールド攻略に特化した非公式データベースサイト',
 
   // social usernames (optional)
-  twitter: 'transitive_bs',
-  github: 'transitive-bullshit',
-  linkedin: 'fisch2',
-  // mastodon: '#', // optional mastodon profile URL, provides link verification
-  // newsletter: '#', // optional newsletter URL
-  // youtube: '#', // optional youtube channel name or `channel/UCGbXXXXXXXXXXXXXXXXXXXXXX`
+  twitter: '',
+  github: '',
+  linkedin: '',
+  // mastodon: '', // optional
+  // newsletter: '',
+  // youtube: '',
 
   // default notion icon and cover images for site-wide consistency (optional)
-  // page-specific values will override these site-wide defaults
   defaultPageIcon: null,
   defaultPageCover: null,
   defaultPageCoverPosition: 0.5,
 
-  // whether or not to enable support for LQIP preview images (optional)
+  // LQIP preview images
   isPreviewImageSupportEnabled: true,
 
-  // whether or not redis is enabled for caching generated preview images (optional)
-  // NOTE: if you enable redis, you need to set the `REDIS_HOST` and `REDIS_PASSWORD`
-  // environment variables. see the readme for more info
+  // Redis preview image caching
   isRedisEnabled: false,
 
-  // map of notion page IDs to URL paths (optional)
-  // any pages defined here will override their default URL paths
-  // example:
-  //
-  // pageUrlOverrides: {
-  //   '/foo': '067dd719a912471ea9a3ac10710e7fdf',
-  //   '/bar': '0be6efce9daf42688f65c76b89f8eb27'
-  // }
+  // optional URL overrides
   pageUrlOverrides: null,
 
-  // whether to use the default notion navigation style or a custom one with links to
-  // important pages. To use `navigationLinks`, set `navigationStyle` to `custom`.
+  // navigation style
   navigationStyle: 'default'
   // navigationStyle: 'custom',
   // navigationLinks: [
   //   {
-  //     title: 'About',
-  //     pageId: 'f1199d37579b41cbabfc0b5174f4256a'
+  //     title: 'キャラクター',
+  //     pageId: 'ここにキャラページのID'
   //   },
   //   {
-  //     title: 'Contact',
-  //     pageId: '6a29ebcb935a4f0689fe661ab5f3b8d1'
+  //     title: 'ガイド',
+  //     pageId: 'ここにガイドページのID'
   //   }
   // ]
 })
