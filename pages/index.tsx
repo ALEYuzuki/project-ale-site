@@ -1,12 +1,25 @@
+import Layout from '@/components/Layout'
 import { NotionPage } from '@/components/NotionPage'
+import { GetStaticProps } from 'next'
 import { getPage } from '@/lib/notion'
+import { siteConfig } from '@/lib/config'
+import { ExtendedRecordMap } from 'notion-types'
 
-export default function Home(props) {
-  return <NotionPage recordMap={props.recordMap} />
+type Props = {
+  recordMap: ExtendedRecordMap
 }
 
-export async function getStaticProps() {
-  const recordMap = await getPage('2396949e86ee80bcaae4d10d9b2c6e67')
+export default function Home({ recordMap }: Props) {
+  return (
+    <Layout>
+      <NotionPage recordMap={recordMap} />
+    </Layout>
+  )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const recordMap = await getPage(siteConfig.rootNotionPageId)
+
   return {
     props: {
       recordMap,
