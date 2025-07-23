@@ -14,17 +14,17 @@ import {
   posthogId
 } from '@/lib/config'
 
-// react-notion-x core styles (必須)
+// core styles shared by all of react-notion-x (required)
 import 'react-notion-x/src/styles.css'
-// 数式表示用 KaTeX（オプション）
+// used for rendering equations (optional)
 import 'katex/dist/katex.min.css'
-// コードハイライトテーマ（オプション）
+// used for code syntax highlighting (optional)
 import 'prismjs/themes/prism-coy.css'
-// グローバルスタイル（全体）
+// global styles shared across the entire site
 import 'styles/global.css'
-// Notionカスタムスタイル
+// global style overrides for notion
 import 'styles/notion.css'
-// Prism テーマの上書き（オプション）
+// global style overrides for prism theme (optional)
 import 'styles/prism-theme.css'
 
 
