@@ -1,14 +1,14 @@
+// ✅ 不要な import を削除し、重複も避けたバージョン
+
 import cs from 'classnames'
-import dynamic from 'next/dynamic'
 import Image from 'next/legacy/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { type PageBlock } from 'notion-types'
-import { formatDate, getBlockTitle, getPageProperty } from 'notion-utils'
+import { getBlockTitle, getPageProperty } from 'notion-utils'
 import * as React from 'react'
 import { useSearchParam } from 'react-use'
 
-import Layout from './Layout'
 import { PageAside } from './PageAside'
 import { Footer } from './Footer'
 import { Loading } from './Loading'
@@ -25,6 +25,7 @@ import { getCanonicalPageUrl, mapPageUrl } from '@/lib/map-page-url'
 import { searchNotion } from '@/lib/search-notion'
 import { useDarkMode } from '@/lib/use-dark-mode'
 import styles from './styles.module.css'
+
 
 // ...（すべてのインポートはそのまま）...
 import Layout from './Layout' // ⬅️ 追加：Layoutコンポーネントのインポート
