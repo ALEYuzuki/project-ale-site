@@ -1,12 +1,13 @@
+// components/Layout.tsx
+
 import React, { ReactNode } from 'react'
 
-export default function Layout({
-  children,
-  aside
-}: {
+interface LayoutProps {
   children: ReactNode
   aside?: ReactNode
-}) {
+}
+
+export default function Layout({ children, aside }: LayoutProps) {
   return (
     <div className="flex h-screen text-white">
       {/* サイドバー */}
@@ -20,7 +21,7 @@ export default function Layout({
         </nav>
       </aside>
 
-      {/* メイン */}
+      {/* メインコンテンツ */}
       <main
         className="flex-1 ml-64 relative overflow-y-auto"
         style={{
@@ -29,14 +30,19 @@ export default function Layout({
           backgroundPosition: 'center',
         }}
       >
+        {/* 黒いオーバーレイ */}
         <div className="absolute inset-0 bg-black bg-opacity-60 z-10" />
+
+        {/* メイン＋右サイドバー */}
         <div className="relative z-20 p-8 flex">
+          {/* メイン */}
           <div className="flex-1">
             <div className="container mx-auto max-w-5xl px-4">
               {children}
             </div>
           </div>
-          {/* 右サイドバー */}
+
+          {/* 右サイドバー（optional） */}
           {aside && (
             <aside className="hidden lg:block w-80 ml-8">
               {aside}
