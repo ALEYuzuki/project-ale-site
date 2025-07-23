@@ -1,31 +1,36 @@
-import Head from 'next/head'
+import { ReactNode } from 'react'
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <>
-      <Head>
-        <title>ProjectAEL | アークナイツ：エンドフィールド攻略</title>
-        <meta name="description" content="非公式の攻略データベース。キャラ・ガイド・ニュース情報あり。" />
-        <meta property="og:title" content="ProjectAEL" />
-        <meta property="og:description" content="エンドフィールド攻略に特化したデータサイト。" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://projectael.vercel.app" />
-      </Head>
+    <div className="flex h-screen text-white">
+      {/* サイドバー */}
+      <aside className="w-64 bg-gray-900 bg-opacity-80 p-6 fixed top-0 left-0 h-full shadow-lg z-20">
+        <h1 className="text-2xl font-bold mb-6">ProjectAEL</h1>
+        <nav className="space-y-4">
+          <a href="/" className="block hover:text-blue-400">🏠 トップ</a>
+          <a href="/characters" className="block hover:text-blue-400">🧍‍♂️ キャラクター紹介</a>
+          <a href="/guides" className="block hover:text-blue-400">📘 攻略ガイド</a>
+          <a href="/news" className="block hover:text-blue-400">📰 最新ニュース</a>
+        </nav>
+      </aside>
 
-      <header className="bg-gray-900 text-white py-16 px-4 text-center">
-        <h1 className="text-4xl sm:text-5xl font-bold mb-4">ProjectAELへようこそ</h1>
-        <p className="text-lg sm:text-xl max-w-2xl mx-auto">
-          アークナイツ：エンドフィールド攻略に特化した非公式データベースサイトです。
-        </p>
-      </header>
+      {/* メインコンテンツ with 背景画像 */}
+      <main
+        className="flex-1 ml-64 relative overflow-y-auto"
+        style={{
+          backgroundImage: `url('/背景横濃.png')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        {/* 黒オーバーレイ */}
+        <div className="absolute inset-0 bg-black bg-opacity-60 z-10" />
 
-      <main className="max-w-3xl mx-auto px-4 py-12 bg-white shadow-md rounded-lg -mt-8 z-10 relative">
-        {children}
+        {/* メインコンテンツ */}
+        <div className="relative z-20 p-8">
+          {children}
+        </div>
       </main>
-
-      <footer className="text-center text-sm text-gray-500 py-6">
-        &copy; {new Date().getFullYear()} ProjectAEL - 非公式ファンサイトです。
-      </footer>
-    </>
+    </div>
   )
 }
