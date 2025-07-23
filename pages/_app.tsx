@@ -1,8 +1,8 @@
 import type { AppProps } from 'next/app'
-import * as Fathom from 'fathom-client'
 import { useRouter } from 'next/router'
-import { posthog } from 'posthog-js'
 import * as React from 'react'
+import * as Fathom from 'fathom-client'
+import { posthog } from 'posthog-js'
 
 import Layout from '@/components/Layout'
 import { bootstrap } from '@/lib/bootstrap-client'
@@ -14,20 +14,19 @@ import {
   posthogId
 } from '@/lib/config'
 
-// core styles shared by all of react-notion-x (required)
+// react-notion-x core styles (必須)
 import 'react-notion-x/src/styles.css'
-// used for rendering equations (optional)
+// 数式表示用 KaTeX（オプション）
 import 'katex/dist/katex.min.css'
-// used for code syntax highlighting (optional)
+// コードハイライトテーマ（オプション）
 import 'prismjs/themes/prism-coy.css'
-// this might be better for dark mode
-// import 'prismjs/themes/prism-okaidia.css'
-// global styles shared across the entire site
+// グローバルスタイル（全体）
 import 'styles/global.css'
-// global style overrides for notion
+// Notionカスタムスタイル
 import 'styles/notion.css'
-// global style overrides for prism theme (optional)
+// Prism テーマの上書き（オプション）
 import 'styles/prism-theme.css'
+
 
 if (!isServer) {
   bootstrap()
