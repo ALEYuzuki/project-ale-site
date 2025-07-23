@@ -1,7 +1,7 @@
 import { NotionPage } from '@/components/NotionPage'
-import { GetStaticProps } from 'next'
 import { getPage } from '@/lib/notion'
 import { rootNotionPageId } from '@/lib/config'
+import { GetStaticProps } from 'next'
 import { ExtendedRecordMap } from 'notion-types'
 
 type Props = {
