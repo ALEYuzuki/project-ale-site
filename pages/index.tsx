@@ -11,11 +11,18 @@ type Props = {
 export default function Home({ recordMap }: Props) {
   const site = {
     name: 'ProjectAEL',
-    domain: 'project-ael.vercel.app', // ← 本番URLやカスタムドメインに合わせて変更
-    rootNotionPageId
+    domain: 'project-ael.vercel.app',
+    rootNotionPageId,
+    rootNotionSpaceId: null // ← ★追加！
   }
 
-  return <NotionPage site={site} recordMap={recordMap} pageId={rootNotionPageId} />
+  return (
+    <NotionPage
+      site={site}
+      recordMap={recordMap}
+      pageId={rootNotionPageId}
+    />
+  )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
