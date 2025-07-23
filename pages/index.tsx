@@ -1,4 +1,3 @@
-import Layout from '@/components/Layout'
 import { NotionPage } from '@/components/NotionPage'
 import { GetStaticProps } from 'next'
 import { getPage } from '@/lib/notion'
@@ -10,11 +9,7 @@ type Props = {
 }
 
 export default function Home({ recordMap }: Props) {
-  return (
-    <Layout>
-      <NotionPage recordMap={recordMap} />
-    </Layout>
-  )
+  return <NotionPage recordMap={recordMap} />
 }
 
 export const getStaticProps: GetStaticProps = async () => {
