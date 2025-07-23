@@ -1,12 +1,8 @@
 {
-  "buildCommand": "pnpm run build",
-  "installCommand": "pnpm install",
-  "framework": "nextjs",
-  "outputDirectory": "",
   "rewrites": [
     {
-      "source": "/",
-      "destination": "/api/page"
+      "source": "/api/:match*",
+      "destination": "https://notion-api.splitbee.io/v1/:match*"
     }
   ]
 }
