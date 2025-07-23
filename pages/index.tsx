@@ -9,24 +9,22 @@ type Props = {
 }
 
 export default function Home({ recordMap }: Props) {
-  return (
-    <>
-      <NotionPage recordMap={recordMap} />
-    </>
-  )
+  const site = {
+    name: 'ProjectAEL',
+    domain: 'project-ael.vercel.app', // ← 本番URLやカスタムドメインに合わせて変更
+    rootNotionPageId
+  }
+
+  return <NotionPage site={site} recordMap={recordMap} pageId={rootNotionPageId} />
 }
 
 export const getStaticProps: GetStaticProps = async () => {
   const recordMap = await getPage(rootNotionPageId)
 
-  if (!recordMap) {
-    console.error('❌ recordMap is undefined or null')
-  }
-
   return {
     props: {
-      recordMap,
+      recordMap
     },
-    revalidate: 10,
+    revalidate: 10
   }
 }
