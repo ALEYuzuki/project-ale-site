@@ -9,11 +9,19 @@ type Props = {
 }
 
 export default function Home({ recordMap }: Props) {
-  return <NotionPage recordMap={recordMap} />
+  return (
+    <>
+      <NotionPage recordMap={recordMap} />
+    </>
+  )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
   const recordMap = await getPage(rootNotionPageId)
+
+  if (!recordMap) {
+    console.error('❌ recordMap is undefined or null')
+  }
 
   return {
     props: {
