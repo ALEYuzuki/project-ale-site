@@ -1,6 +1,10 @@
-import { ReactNode } from 'react'
-
-export default function Layout({ children }: { children: ReactNode }) {
+export default function Layout({
+  children,
+  aside
+}: {
+  children: ReactNode
+  aside?: ReactNode
+}) {
   return (
     <div className="flex h-screen text-white">
       {/* サイドバー */}
@@ -14,7 +18,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         </nav>
       </aside>
 
-      {/* メインコンテンツ with 背景画像 */}
+      {/* メイン */}
       <main
         className="flex-1 ml-64 relative overflow-y-auto"
         style={{
@@ -23,12 +27,19 @@ export default function Layout({ children }: { children: ReactNode }) {
           backgroundPosition: 'center',
         }}
       >
-        {/* 黒オーバーレイ */}
         <div className="absolute inset-0 bg-black bg-opacity-60 z-10" />
-
-        {/* メインコンテンツ */}
-        <div className="relative z-20 p-8">
-          {children}
+        <div className="relative z-20 p-8 flex">
+          <div className="flex-1">
+            <div className="container mx-auto max-w-5xl px-4">
+              {children}
+            </div>
+          </div>
+          {/* 右サイドバー */}
+          {aside && (
+            <aside className="hidden lg:block w-80 ml-8">
+              {aside}
+            </aside>
+          )}
         </div>
       </main>
     </div>
